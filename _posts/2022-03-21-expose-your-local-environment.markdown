@@ -14,13 +14,13 @@ In this post, two methods will be explain but there are more.
 ### Prerequistes
 All devices have to be connected on the same network.
 
-### Install Squidman
+### Install SquidMan
 
 SquidMan is a proxy and it is completely free. Go to the [official website](https://squidman.net/squidman/), download the latest version and install it. 
 
 Note: You can use any other proxy software if you prefer.
 
-### Configure Squidman
+### Configure SquidMan
 Run SquidMan and open the preferences settings.
 
 To allow the access to the localhost, open the template tab and comment the line: `http_access deny to_localhost` by adding a `#` at the beginning.
@@ -35,4 +35,27 @@ Now you can access your vhost or directly localhost from your second device.
 
 ## Exposing to public using tunneling
 
-Comming soon...
+To expose your local environmnent to the outside, you can create a tunnel from your device to a public domain. For this purpose, [ngrok](https://ngrok.com/) will be used. A good alternative is [localhost.run](https://localhost.run/). 
+
+### Install and run ngrok
+Go to the [official download link](https://ngrok.com/download), select your OS and just follow the steps.
+
+If you need to rewrite the header of the request because you use a vhost (MAMP, XAMP):
+```bash
+$ ngrok http -host-header=rewrite yoursite.dev:80
+
+ngrok by @inconshreveable                                                            (Ctrl+C to quit)
+                                                                                                     
+Session Status                online                                                                 
+Account                       *** (Plan: Free)                                                
+Version                       2.3.40                                                                 
+Region                        United States (us)                                                     
+Web Interface                 http://127.0.0.1:4040                                                  
+Forwarding                    http://f7ed-146-4-127-6.ngrok.io -> http://yoursite.dev:80             
+Forwarding                    https://f7ed-146-4-127-6.ngrok.io -> http://yoursite.dev:80 
+```
+
+You can now access to your local environment from any device connected to the web.
+
+
+Note: ngrok offers other services but not all are free. Checkout the [documentation](https://ngrok.com/docs) for more information.
