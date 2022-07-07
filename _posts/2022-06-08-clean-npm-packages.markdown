@@ -49,6 +49,9 @@ Another way to have the cost of each package, is directly using a vs code extens
 
 ![<img src="https://citw.dev/_next/image?url=%2fposts%2fimport-cost%2f1quov3TFpgG2ur7myCLGtsA.gif&w=1080&q=75">](https://citw.dev/_next/image?url=%2fposts%2fimport-cost%2f1quov3TFpgG2ur7myCLGtsA.gif&w=1080&q=75)
 
+If you don't want to process any installation, you can use [bundlephobia](https://bundlephobia.com/) to find out the package cost.
+
+![<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--J9ATrWWX--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/mqd13inh446tyt5qw5il.png">](https://res.cloudinary.com/practicaldev/image/fetch/s--J9ATrWWX--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/mqd13inh446tyt5qw5il.png)
 
 ## ls
 > List installed packages
