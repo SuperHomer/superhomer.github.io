@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Mobile web adapation"
-date:   2022-07-11 14:00:00 +0100
+date:   2022-11-19 14:00:00 +0100
 categories: web mobile
 ---
 
@@ -20,7 +20,7 @@ Expended            |  Reduced
 :-------------------------:|:-------------------------:
 ![navbar expended](/assets/img/navbar_expend.png)  |  ![navbar reduced](/assets/img/navbar_reduce.png)
 
-So the 100vh doesn't recaculate istelf. Fortunatley there is a trick that can be done to fix this.
+So the `100vh` doesn't recaculate istelf. Fortunatley there is a trick that can be done to fix this.
 
 We have to calculate it using Javascript:
 
@@ -48,9 +48,6 @@ Of course you can reuse this logic to position absolute `div` at the bottom (but
 /* Here it will appear 20px upper */
 .my-bottom-element {
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
     top: 0;
     left: 0;
     height: 50px;
@@ -59,5 +56,32 @@ Of course you can reuse this logic to position absolute `div` at the bottom (but
 }
 ```
 
+## Automatic zoom on safari/iOS
+On iOS, you can have an issue with the inputs. When you write something in it, you have a zoom on the page.
+
+Form view            |  Form view after input click
+:-------------------------:|:-------------------------:
+![navbar expended](/assets/img/input.png)  |  ![navbar reduced](/assets/img/input_zoom.png)
+
+As you can see it on the right the scroll bar are there for horizontal and vertical.
+This is due to accessibility on iOS/safari that enforce zoom on any input with a font size smaller than `16px`.
+
+There are many ways to fix this issue like disable zoom but I don't like this solution. For me the best one is to enforce the `16px` minimum size on mobile device on inputs:
+
+```css
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+    select,
+    textarea,
+    input {
+      font-size: 16px !important;
+    }
+  }
+```
+<!-- ## Video autoplay iOS -->
+
+<!-- ## Parallax effect on iOS -->
+
+
 ## Sources
 - <https://css-tricks.com/the-trick-to-viewport-units-on-mobile/>
+- <https://stackoverflow.com/questions/2989263/disable-auto-zoom-in-input-text-tag-safari-on-iphone>
